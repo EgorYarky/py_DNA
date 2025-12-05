@@ -1,21 +1,18 @@
-import random
 import DNA_func
+import random_generator
 
 app_on = 1
-symbols = "ATCG"
-password_length = 8
 dna_base = []
 while app_on > 0:
     correct_data = True
     type_work = input("Enter \"R\" To Randomly Generate DNA Base, Otherwise Enter Any Character: ")
     if type_work == "R" or type_work == "r":
-        dna_base.clear()
-        dna_base = random.choices(symbols, k=password_length)
-        random.shuffle(dna_base)
+        dna_base = random_generator.random_gen(dna_base)
     
     else:
         dna_base.clear()
-        enter_dna_base = input("Enter DNA Base(Only In Uppercase): ")
+        enter_dna_base = input("Enter DNA Base: ")
+        enter_dna_base = enter_dna_base.upper()
         for a in enter_dna_base:
             if a in ('A', 'T', 'C', 'G'):
                 dna_base.append(a)
